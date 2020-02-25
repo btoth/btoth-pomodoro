@@ -1,0 +1,6 @@
+input { border-width: 0; }
+
+input:focus { 
+  outline-width: 0; 
+  border-width: 0;
+}

@@ -1,0 +1,39 @@
+<div class="container-sm">
+  <div class="row">
+    <div class="col-md-4  text-center">
+      <h1
+        (dragover)="$event.preventDefault()"
+        (drop)="moveTo($event, pending)"
+      >Pending</h1>
+      <p *ngFor="let task of tasklist.tasks">
+      <app-task [task]=task *ngIf="task.isPending"></app-task>
+      </p>
+      
+      <button (click)="createNew(pending)">New task</button>
+    </div>
+
+    <div class="col-md-4 text-center">
+      <h1
+        (dragover)="$event.preventDefault()"
+        (drop)="moveTo($event, backlog)"
+      >Backlog</h1>
+      <p *ngFor="let task of tasklist.tasks">
+      <app-task [task]=task *ngIf="task.isBacklog"></app-task>
+      </p>
+
+      <button (click)="createNew(backlog)">New task</button>
+    </div>
+
+    <div class="col-md-4  text-center">
+      <h1
+        (dragover)="$event.preventDefault()"
+        (drop)="moveTo($event, done)"
+      >Done</h1>
+      <p *ngFor="let task of tasklist.tasks">
+      <app-task [task]=task *ngIf="task.isDone"></app-task>
+      </p>
+      
+      <button (click)="createNew(done)">New task</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<div class="container">
+  <p class="text-center timer">
+  {{ timer.mins | doubleDigit }}:{{ timer.secs | doubleDigit }}
+  </p>
+  <p class="text-center">{{ timer.message() }}</p>
+  <div class="text-center mb-5">
+    <button (click)='timer.continue()' *ngIf="timer.paused">Start</button>
+    <button (click)='timer.pause()' *ngIf="timer.inProgress">Pause</button>
+    <button (click)='timer.reset()' *ngIf="! timer.onHalt">Reset</button>
+  <div>
+</div>

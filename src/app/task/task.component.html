@@ -1,0 +1,23 @@
+<div 
+  draggable="true"
+  (dragover)="handleDragover($event)"
+  (drop)="handleDrop($event)"
+  (dragstart)="handleDragstart($event)"
+>
+  <div class="row"> 
+    <form>
+      <input
+        class="col-10"
+        type="text" 
+        placeholder="Unnamed task" 
+        [value]="task.title" 
+        (input)="handleInput($event)"
+        (keydown)="handleKeydown($event)"
+      />
+    </form>
+    <div class="col-2">{{ task.pomosDone }}</div>
+  </div>
+  <button (click)="remove()">Delete</button>
+  <button (click)="timer.startProgress(task)" *ngIf="timer.onHalt || timer.restingUp">Start Progress</button>
+  <button (click)="timer.switchProgress(task)" *ngIf="canSwitch">Switch Progress</button>
+</div>

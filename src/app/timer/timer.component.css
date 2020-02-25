@@ -1,0 +1,21 @@
+.timer {
+  font-size: 15em;
+}
+
+@media (max-width: 960px) {
+  .timer {
+    font-size: 10em;
+  }
+}
+
+@media (max-width: 720px) {
+  .timer {
+    font-size: 7em;
+  }
+}
+
+@media (max-width: 540px) {
+  .timer {
+    font-size: 5em;
+  }
+}

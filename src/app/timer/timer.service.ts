@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Output, EventEmitter } from '@angular/core';
 import { Task } from '../task/task.interface';
-import { Preferences } from '../preferences/preferences.service';
+import { Settings } from '../settings';
 
 enum Phase {
   InProgress,
@@ -12,8 +12,6 @@ enum Phase {
 
 @Injectable()
 export class TimerService {
-  constructor(private prefs: Preferences) {};
-
   task: Task;
   intervalId = 0;
 
@@ -54,8 +52,8 @@ export class TimerService {
   startProgress(task) {
     if(this.phase != Phase.OnHalt && this.phase != Phase.RestingUp) return;
 
-    this.mins = Math.floor(this.prefs.progressDuration / 60);
-    this.secs = Math.floor(this.prefs.progressDuration % 60);
+    this.mins = Math.floor(Settings.progressDuration / 60);
+    this.secs = Math.floor(Settings.progressDuration % 60);
     this.phase = Phase.InProgress;
     this.task = task;
     this.startTimer();
@@ -64,8 +62,8 @@ export class TimerService {
   startRest() {
     if(this.phase != Phase.InProgress) return;
 
-    this.mins = Math.floor(this.prefs.restDuration / 60);
-    this.secs = Math.floor(this.prefs.restDuration % 60);
+    this.mins = Math.floor(Settings.restDuration / 60);
+    this.secs = Math.floor(Settings.restDuration % 60);
     this.phase = Phase.RestingUp;
     this.startTimer();
   }

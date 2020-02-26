@@ -21,13 +21,6 @@ export class TasklistService {
 
   taskInProgress: Task;
 
-  startPomo(task: Task) {
-    if(this.taskInProgress) return;
-    this.taskInProgress = task;
-    this.timer.reset(25, 0);
-    this.timer.start();
-  }
-
   indexOf(task: Task): number {
     return this.tasks.findIndex(t => t.id == task.id);
   }

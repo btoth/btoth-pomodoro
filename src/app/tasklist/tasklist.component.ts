@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Task, TaskState } from '../task/task.class';
 import { TasklistService } from '../tasklist/tasklist.service';
 
@@ -7,20 +7,22 @@ import { TasklistService } from '../tasklist/tasklist.service';
   templateUrl: './tasklist.component.html',
   styleUrls: ['./tasklist.component.css']
 })
-export class TasklistComponent{
-  done = TaskState.Done
-  pending = TaskState.Pending
-  backlog = TaskState.Backlog
+export class TasklistComponent {
+  constructor(public tasklist: TasklistService){}
+  @Input() title: string
+  @Input() state: TaskState
 
-  createNew(state: TaskState) {
-    this.tasklist.createTask(state);
+  get tasks() {
+    return this.tasklist.tasks.filter( task => task.state == this.state )
   }
 
-  moveTo(event, newState: TaskState) {
-    let idx = event.dataTransfer.getData("text/plain");
-    let task = this.tasklist.tasks[idx];
-    this.tasklist.changeState(task, newState);
+  createNew() {
+    this.tasklist.createTask(this.state)
   }
 
-  constructor(public tasklist: TasklistService){};
+  moveTo(event) {
+    let idx = event.dataTransfer.getData("text/plain")
+    let task = this.tasklist.tasks[idx]
+    this.tasklist.changeState(task, this.state)
+  }
 }

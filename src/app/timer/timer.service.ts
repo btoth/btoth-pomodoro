@@ -24,16 +24,12 @@ export class TimerService {
   get restingUp(){ return this.phase == Phase.RestingUp; }
   get onHalt(){ return this.phase == Phase.OnHalt; }
 
-  message() {
-    switch(this.phase) {
-      case Phase.OnHalt:
-        return "Whatcha wanna do?";
-      case Phase.InProgress:
-        return "In progress: " + this.task.title;
-      case Phase.Paused:
-        return "Paused: " + this.task.title;
-      case Phase.RestingUp:
-        return "Rest up, yo!";
+  get currentTask() {
+    if(this.task && this.task.title) {
+      return this.task.title;
+    }
+    else {
+      return "Anonymous task";
     }
   }
 

@@ -9,10 +9,11 @@ import { TasklistComponent } from './tasklist/tasklist.component';
 import { TaskComponent } from './task/task.component';
 import { TasklistService } from './tasklist/tasklist.service';
 import { TimerService } from './timer/timer.service';
+import { PlayButtonComponent, PauseButtonComponent } from './play-button/play-button.component';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule],
-  declarations: [ AppComponent, TimerComponent, DoubleDigitPipe, TasklistComponent, TaskComponent ],
+  declarations: [ AppComponent, TimerComponent, DoubleDigitPipe, TasklistComponent, TaskComponent, PlayButtonComponent ],
   bootstrap:    [ AppComponent ],
   providers: [TasklistService, TimerService]
 })

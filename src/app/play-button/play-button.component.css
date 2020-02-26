@@ -1,0 +1,10 @@
+svg {
+  max-width: 40px;
+  max-height: 40px;
+  cursor: pointer;
+  fill: black;
+}
+
+svg:hover {
+  fill: red;
+}

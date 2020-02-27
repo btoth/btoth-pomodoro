@@ -2,35 +2,35 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'play-button',
-  templateUrl: './pause.svg',
-  styleUrls: ['./play-button.component.css']
+  templateUrl: './play.svg',
+  styleUrls: ['./button.component.css']
 })
 export class PlayButtonComponent {}
 
 @Component({
   selector: 'pause-button',
   templateUrl: './pause.svg',
-  styleUrls: ['./play-button.component.css']
+  styleUrls: ['./button.component.css']
 })
 export class PauseButtonComponent {}
 
 @Component({
   selector: 'stop-button',
-  templateUrl: './play-button.component.html',
-  styleUrls: ['./play-button.component.css']
+  templateUrl: './stop.svg',
+  styleUrls: ['./button.component.css']
 })
 export class StopButtonComponent {}
 
 @Component({
   selector: 'remove-button',
-  templateUrl: './play-button.component.html',
-  styleUrls: ['./play-button.component.css']
+  templateUrl: './remove.svg',
+  styleUrls: ['./button.component.css']
 })
 export class RemoveButtonComponent {}
 
 @Component({
   selector: 'add-button',
-  templateUrl: './play-button.component.html',
-  styleUrls: ['./play-button.component.css']
+  templateUrl: './add.svg',
+  styleUrls: ['./button.component.css']
 })
 export class AddButtonComponent {}

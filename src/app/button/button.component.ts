@@ -23,7 +23,7 @@ export class StopButtonComponent {}
 
 @Component({
   selector: 'remove-button',
-  templateUrl: './remove.svg',
+  templateUrl: './delete.svg',
   styleUrls: ['./button.component.css']
 })
 export class RemoveButtonComponent {}
@@ -34,3 +34,11 @@ export class RemoveButtonComponent {}
   styleUrls: ['./button.component.css']
 })
 export class AddButtonComponent {}
+
+@Component({
+  selector: 'change-button',
+  templateUrl: './change.svg',
+  styleUrls: ['./button.component.css']
+})
+export class ChangeButtonComponent {}
+

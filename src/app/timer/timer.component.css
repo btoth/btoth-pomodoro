@@ -8,23 +8,18 @@
   margin-top: 20px;
   margin-bottom: 20px;
   text-align: center;
-  font-size: 15em;
+  font-size: 300%;
+}
+
+.buttons {
+  text-align: center;
 }
 
 @media (max-width: 960px) {
-  .timer {
-    font-size: 10em;
-  }
 }
 
 @media (max-width: 720px) {
-  .timer {
-    font-size: 7em;
-  }
 }
 
 @media (max-width: 540px) {
-  .timer {
-    font-size: 5em;
-  }
 }

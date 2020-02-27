@@ -33,7 +33,7 @@ export class TasklistService {
   createTask(state: TaskState) {
     let task = new Task();
     task.state = state;
-    this.tasks.push(task);
+    this.tasks.splice(0, 0, task);
     this.persist();
   }
 

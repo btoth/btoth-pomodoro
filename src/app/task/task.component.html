@@ -4,16 +4,19 @@
   (drop)="handleDrop($event)"
   (dragstart)="handleDragstart($event)"
 >
-<form>
-  <input
-    type="text" 
-    placeholder="Unnamed task" 
-    [value]="task.title" 
-    (input)="handleInput($event)"
-    (keydown)="handleKeydown($event)"
-    [class.done]="task.isDone"
-  />
-<div class="col-2">{{ task.pomosDone }}</div>
-<button (click)="remove()">Delete</button>
-<button (click)="timer.startProgress(task)" *ngIf="timer.onHalt || timer.restingUp">Start Progress</button>
-<button (click)="timer.switchProgress(task)" *ngIf="canSwitch">Switch Progress</button>
+<input
+  type="text" 
+  placeholder="Unnamed task" 
+  [value]="task.title" 
+  (input)="handleInput($event)"
+  (keydown)="handleKeydown($event)"
+  [class.done]="task.isDone"
+/>
+{{ task.pomosDone }}
+
+<remove-button style="margin-left: 5px" (click)="remove()"></remove-button>
+<play-button style="margin-left: 5px" (click)="timer.startProgress(task)"  *ngIf="timer.onHalt || timer.restingUp"></play-button>
+<play-button style="margin-left: 5px" (click)="timer.continue()"  *ngIf="timer.paused && timer.task == task"></play-button>
+<pause-button style="margin-left: 5px" (click)="timer.pause()"  *ngIf="timer.inProgress && timer.task == task"></pause-button>
+<change-button style="margin-left: 5px" (click)="timer.switchProgress(task)" *ngIf="canSwitch"></change-button>
+</div>

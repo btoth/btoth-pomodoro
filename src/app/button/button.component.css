@@ -1,6 +1,6 @@
 svg {
-  max-width: 40px;
-  max-height: 40px;
+  max-height: 1em;
+  max-width: 1em;
   cursor: pointer;
 }
 

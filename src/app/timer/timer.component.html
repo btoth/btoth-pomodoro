@@ -7,10 +7,8 @@
   <p class="message" *ngIf="timer.restingUp">Rest up, yo!</p>
   <p class="message" *ngIf="timer.onHalt">Watcha wanna do?</p>
   <div class="buttons">
-    <button (click)='timer.continue()' *ngIf="timer.paused">Start</button>
-    <button (click)='timer.pause()' *ngIf="timer.inProgress">Pause</button>
-    <button (click)='timer.reset()' *ngIf="! timer.onHalt">Reset</button>
+    <pause-button style="margin-right: 5px" (click)='timer.pause()' *ngIf="timer.inProgress">Pause</pause-button>
+    <play-button style="margin-right: 5px" (click)='timer.continue()' *ngIf="timer.paused">Start</play-button>
+    <stop-button (click)='timer.reset()' *ngIf="! timer.onHalt">Reset</stop-button>
   <div>
 </div>
-<play-button></play-button>
-<!-- pause-button></pause-button -->

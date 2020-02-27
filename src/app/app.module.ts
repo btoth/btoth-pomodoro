@@ -9,14 +9,21 @@ import { TasklistComponent } from './tasklist/tasklist.component';
 import { TaskComponent } from './task/task.component';
 import { TasklistService } from './tasklist/tasklist.service';
 import { TimerService } from './timer/timer.service';
-import { PlayButtonComponent, PauseButtonComponent, StopButtonComponent, AddButtonComponent, RemoveButtonComponent } from './button/button.component';
+
+import { PlayButtonComponent } from './button/button.component';
+import { PauseButtonComponent } from './button/button.component';
+import { StopButtonComponent } from './button/button.component';
+import { AddButtonComponent } from './button/button.component';
+import { RemoveButtonComponent } from './button/button.component';
+import { ChangeButtonComponent } from './button/button.component';
 
 const buttons = [
   PlayButtonComponent, 
   PauseButtonComponent, 
   StopButtonComponent, 
   AddButtonComponent, 
-  RemoveButtonComponent
+  RemoveButtonComponent,
+  ChangeButtonComponent
 ];
 
 const components = [

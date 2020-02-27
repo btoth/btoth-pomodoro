@@ -1,11 +1,12 @@
 <div>
   <h1
     (dragover)="$event.preventDefault()"
-    (drop)="moveTo($event, pending)"
-  >{{ title }}</h1>
+    (drop)="moveTo($event)"
+  >
+    {{ title }}
+    <add-button *ngIf="allowAdd" (click)="createNew()"></add-button>
+  </h1>
   <p *ngFor="let task of tasks">
   <app-task [task]=task></app-task>
   </p>
-  
-  <button (click)="createNew()">New task</button>
 </div>

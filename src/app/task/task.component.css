@@ -1,6 +1,16 @@
-input { border-width: 0; }
+input { 
+  width: 100%;
+  text-align: center; 
+  color: inherit;
+  background-color: inherit;
+  border-width: 0;
+}
 
 input:focus { 
   outline-width: 0; 
   border-width: 0;
+}
+
+input.done {
+  text-decoration: line-through;
 }

@@ -1,1 +1,13 @@
 /* Add application styles & imports to this file! */
+@import url('https://fonts.googleapis.com/css?family=Spartan&display=swap');
+
+body {
+  background-color: #4BA5D1;
+  color: #E9FCFF;
+  fill:  #E9FCFF;
+  font-family: 'Spartan';
+}
+
+::placeholder {
+  color: #9AD0E8;
+}

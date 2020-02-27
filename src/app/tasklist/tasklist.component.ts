@@ -10,10 +10,19 @@ import { TasklistService } from '../tasklist/tasklist.service';
 export class TasklistComponent {
   constructor(public tasklist: TasklistService){}
   @Input() title: string
-  @Input() state: TaskState
+
+  get state(): TaskState {
+    if(this.title == "To do")
+      return TaskState.Pending;
+    return TaskState.Done;
+  }
 
   get tasks() {
     return this.tasklist.tasks.filter( task => task.state == this.state )
+  }
+
+  get allowAdd() {
+    return this.state == TaskState.Pending;
   }
 
   createNew() {

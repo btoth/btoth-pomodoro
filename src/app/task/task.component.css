@@ -1,11 +1,21 @@
 
 input { 
-  width: 80%;
-  display: inline-block;
+  width: 100%;
   text-align: center; 
   color: inherit;
   background-color: inherit;
   border-width: 0;
+}
+
+.task-container {
+  position: relative;
+}
+
+.task-controls {
+  display: block;
+  position: absolute;
+  right: 0px;
+  width: 4em;
 }
 
 input:focus { 
@@ -14,5 +24,9 @@ input:focus {
 }
 
 input.done {
+  text-decoration: line-through;
+}
+
+.done::placeholder {
   text-decoration: line-through;
 }

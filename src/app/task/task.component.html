@@ -1,9 +1,20 @@
 <div 
+  class="task-container"
   draggable="true"
   (dragover)="handleDragover($event)"
   (drop)="handleDrop($event)"
   (dragstart)="handleDragstart($event)"
 >
+<div class="task-controls">
+  {{ task.pomosDone }}
+  <remove-button style="margin-left: 5px" (click)="remove()" *ngIf="timer.task != task || timer.onHalt"></remove-button>
+  <stop-button style="margin-left: 5px" (click)="timer.reset()" *ngIf="timer.task == task && (timer.inProgress || timer.paused)"></stop-button>
+  <play-button style="margin-left: 5px" (click)="timer.startProgress(task)"  *ngIf="task.isPending && (timer.onHalt || timer.restingUp)"></play-button>
+  <play-button style="margin-left: 5px" (click)="timer.continue()"  *ngIf="task.isPending && timer.paused && timer.task == task"></play-button>
+  <pause-button style="margin-left: 5px" (click)="timer.pause()"  *ngIf="timer.inProgress && timer.task == task"></pause-button>
+  <change-button style="margin-left: 5px" (click)="timer.switchProgress(task)" *ngIf="task.isPending && (timer.inProgress || timer.paused) && this.timer.task != this.task"></change-button>
+</div>
+
 <input
   type="text" 
   placeholder="Unnamed task" 
@@ -12,11 +23,5 @@
   (keydown)="handleKeydown($event)"
   [class.done]="task.isDone"
 />
-{{ task.pomosDone }}
 
-<remove-button style="margin-left: 5px" (click)="remove()"></remove-button>
-<play-button style="margin-left: 5px" (click)="timer.startProgress(task)"  *ngIf="timer.onHalt || timer.restingUp"></play-button>
-<play-button style="margin-left: 5px" (click)="timer.continue()"  *ngIf="timer.paused && timer.task == task"></play-button>
-<pause-button style="margin-left: 5px" (click)="timer.pause()"  *ngIf="timer.inProgress && timer.task == task"></pause-button>
-<change-button style="margin-left: 5px" (click)="timer.switchProgress(task)" *ngIf="canSwitch"></change-button>
 </div>
